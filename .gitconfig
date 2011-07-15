@@ -1,0 +1,18 @@
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+
+[alias]
+    ci = commit
+    st = status
+    di = diff
+    up = pull
+    graph = log --graph --pretty=oneline --abbrev-commit
+
+[push]
+    default = current
+
+[user]
+	name = Sergei Nikitin
+	email = nik.pasaran@gmail.com

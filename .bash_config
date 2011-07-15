@@ -1,0 +1,37 @@
+export EMAIL="Sergei Nikitin <nop@yandex-team.ru>"
+export EDITOR=vim
+export PATH=$PATH:~/local/node/bin/
+export CS="root@192.168.1.36"
+export TR="$CS:/volume1/volume1/torrents"
+
+alias vv='vim .'
+alias l='ls'
+alias ll='ls -al'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias ......='cd ../../../../../'
+
+_compssh ()
+{
+    cur=${COMP_WORDS[COMP_CWORD]};
+    COMPREPLY=($(compgen -W '$(/bin/cat ~/hosts_list) --all --schema' -- $cur))
+}
+complete -F _compssh ssh
+
+__git_ps1 ()
+{
+    local b="$(git symbolic-ref HEAD 2>/dev/null)"
+    if [ -n "$b" ]; then
+        if [ -n "$1" ]; then
+            printf "$1" "${b##refs/heads/}"
+        else
+            printf " (%s)" "${b##refs/heads/}"
+        fi
+    fi
+}
+
+export PS1='\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\u@\h: \w\[\e[34;1m\]$(__git_ps1 " (%s)")\[\e[0m\]\$ '
+

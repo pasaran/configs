@@ -1,0 +1,73 @@
+#!/usr/bin/perl -w
+
+use strict;
+
+use Cwd;
+use Cwd 'abs_path';
+use File::Path qw(make_path);
+
+my $home = abs_path($ENV{HOME});
+my $cwd = abs_path(getcwd());
+
+###############################################################################
+
+# кидаем симлинки в home.
+
+my @FILES = qw(.bash_config .vimrc .vim .gitconfig hosts_list bin .ssh/config);
+
+for my $file (@FILES) {
+    if (-e "$home/$file") {
+        `rm -rf $home/$file`;
+    }
+    $file =~ m{^(?:(.*?)/)?([^/]+)$};
+
+    my $dir = $1;
+    my $path = $2;
+
+    if ($dir) {
+        if (!(-e "$home/$dir")) {
+            make_path("$home/dir");
+        }
+        `ln -s -f $cwd/$file $home/$dir`;
+    } else {
+        `ln -s -f $cwd/$file $home`;
+    }
+}
+
+###############################################################################
+
+# дописываем в .bashrc подключение файла .bash_config.
+
+my $bashrc_name = "$home/.bashrc";
+
+my $bashrc = getFile($bashrc_name);
+if ($bashrc !~ m{^if\ \[\ -f\ ~/\.bash_config\ \];\ then}sm) {
+    my $F;
+    open($F, ">>$bashrc_name");
+    print $F <<CONFIG;
+
+if [ -f ~/.bash_config ]; then
+    . ~/.bash_config
+fi
+
+CONFIG
+    close($F);
+}
+
+###############################################################################
+
+sub getFile {
+    my ($name) = @_;
+
+    my $content;
+    my $F;
+    open($F, $name) or die "ERROR: Cannot open file $name\n";
+    {
+        local $/;
+        $content = <$F>;
+    }
+    close($F);
+
+    return $content;
+}
+

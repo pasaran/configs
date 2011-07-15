@@ -1,0 +1,4 @@
+#!/bin/sh
+
+grep -R -e $1 . --include=*.js --color=always -T -n --exclude=jquery* --exclude=firelite* --exclude-dir=static
+

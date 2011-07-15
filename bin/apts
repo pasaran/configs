@@ -1,0 +1,4 @@
+#!/bin/sh
+
+apt-cache search $1 | grep --color=always $1
+

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+grep -R -e $1 . --include=*.xml --color=always -T -n --exclude-dir=static --exclude-dir=lego
+

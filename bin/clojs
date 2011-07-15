@@ -1,0 +1,3 @@
+#!/bin/sh
+
+java -jar /home/nop/bin/compiler.jar --js=$1 --compilation_level=ADVANCED_OPTIMIZATIONS --warning_level=VERBOSE

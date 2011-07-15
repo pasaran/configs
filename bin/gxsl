@@ -1,0 +1,4 @@
+#!/bin/sh
+
+grep -R -e $1 . --include=*.xsl --color=always -T -n --exclude=_jane* --exclude-dir=static
+

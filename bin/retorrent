@@ -1,0 +1,25 @@
+#!/usr/bin/perl -w
+
+use Net::BitTorrent::File;
+use File::Find;
+use File::Basename;
+
+my $dir = shift || '.';
+if (!(-d $dir)) { return; }
+
+find({ wanted => \&process, no_chdir => 1 }, $dir);
+
+sub process {
+    my $oldname = $_;
+    if ($oldname !~ /\.torrent$/) { return; }
+
+    my ($name, $path) = fileparse($oldname);
+
+    my $torrent = new Net::BitTorrent::File($oldname);
+    my $newname = $path . $torrent->name() . ".torrent";
+
+    if ($oldname eq $newname) { return; }
+
+    rename($oldname, $newname);
+}
+
