@@ -1,0 +1,65 @@
+# Prototype
+snippet proto
+	${1}.prototype.${2} = function(${3}) {
+		${4}
+	};
+# Function
+snippet fun
+	function ${1}(${2}) {
+		${3}
+	}
+# Anonymous Function
+snippet f
+	function(${1}) {${2}};
+# if
+snippet if
+	if (${1}) {
+		${2}
+	}
+# if ... else
+snippet ife
+	if (${1}) {
+		${2}
+	} else {
+		${3}
+	}
+# tertiary conditional
+snippet t
+	(${1}) ? ${2} : ${3}
+# switch
+snippet switch
+	switch (${1}) {
+		case ${3}:
+			${4}
+			break;
+		${5}
+		default:
+			${2}
+	}
+# case
+snippet case
+	case ${1}:
+		${2}
+		break;
+	${3}
+# for (...) {...}
+snippet for
+	for (var ${1:i} = 0, ${2:l} = ${3:items}.length; $1 < $2; $1++) {
+		var ${4:item} = $3[$1];
+	}
+# while (...) {...}
+snippet wh
+	while (${1}) {
+		${2}
+	}
+# Object Method
+snippet :f
+	${1}: function(${2}) {
+		${4}
+	}${3}
+# Get Elements by ClassName/TagName
+snippet glass
+	${1:document}.getElementsBy${2:Class}Name('${3}')${4}
+# Get Element by Id
+snippet gid
+	${1:document}.getElementById('${2}')${3}

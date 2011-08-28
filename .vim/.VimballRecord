@@ -1,0 +1,1 @@
+javascript.vba: call delete('/home/nop/.vim/syntax/javascript.vim')|call delete('/home/nop/.vim/indent/javascript.vim')
