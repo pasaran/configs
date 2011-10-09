@@ -1,6 +1,6 @@
 export EMAIL="Sergei Nikitin <nop@yandex-team.ru>"
 export EDITOR=vim
-export PATH=~/bin:~/local/node/bin/:$PATH
+export PATH=~/bin:~/local/node/bin/:~/usr/local/sbin/:$PATH
 export NODE_PATH=~/local/node:~/local/node/lib/node_modules
 
 alias vv='vim .'
