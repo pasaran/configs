@@ -1,11 +1,10 @@
 export EMAIL="Sergei Nikitin <nop@yandex-team.ru>"
 export EDITOR=vim
-export PATH=$PATH:~/local/node/bin/
-export CS="root@192.168.1.36"
-export TR="$CS:/volume1/volume1/torrents"
+export PATH=~/bin:~/local/node/bin/:$PATH
+export NODE_PATH=~/local/node:~/local/node/lib/node_modules
 
 alias vv='vim .'
-alias l='ls'
+alias l='ls -G'
 alias ll='ls -al'
 
 alias ..='cd ..'
