@@ -1,4 +1,4 @@
 #!/bin/sh
 
-sudo openvpn --config ~/.certs/vpn.conf
+sudo openvpn --config ~/certs/vpn.conf
 
