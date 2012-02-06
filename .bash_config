@@ -34,3 +34,4 @@ __git_ps1 ()
 
 export PS1='\[\e]0;\u@\h: \w\a\]\[\e[32;1m\]\u@\[\e[34;1m\]\h \w \[\e[0m\]$(__git_ps1 "(%s)")\[\e[34;1m\]\$ \[\e[0m\]'
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
