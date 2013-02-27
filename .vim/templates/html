@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>FIXME</title>
     <link rel="stylesheet" type="text/css" href="FIXME"/>
-    <script type="text/javascript" src="FIXME"></script>
+    <script src="http://yandex.st/jquery/1.7.1/jquery.js"></script>
+    <script src="FIXME"></script>
 </head>
 <body>
 
 </body>
 </html>
-# cursor: 9 del
+
+# cursor: 11 del
